@@ -19,18 +19,17 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Services
+                Category
               </a>
+             
               <ul class="dropdown-menu bg-dark-subtle">
-                <li><a class="dropdown-item" href="{% url 'ctaboutPage' %}">Custom homes</a></li>
-                <li><a class="dropdown-item" href="#">Reconstruction </a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Products</a></li>
+                {% for service in shows %}
+                <li><a class="dropdown-item" href="{% url 'showpage' service.pk %}">{{service.item_emer}}</a></li>
+                {% endfor %}
               </ul>
             </li>
           </ul>
+         
           <form class="d-flex mt-3" role="search">
             <input class="form-control me-2 kerko1" type="search" placeholder="Search" aria-label="Search">
             <button class="btn kerko" type="submit">Search</button>

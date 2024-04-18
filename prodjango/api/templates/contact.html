@@ -3,4 +3,31 @@
 {% block content %}
 <h1> Contact </h1>
 <h3> Contact</h3>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="person" class="form-label">Insert name and surname below:</label>
+            <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="Name:">
+            <hr>
+            <input type="text" class="form-control" name="surname" id="exampleFormControlInput1" placeholder="Surname: ">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <button type="submit">Submit</button>
+          </div>
+    </form>
+</div>
+
+
+
+
 {% endblock %}

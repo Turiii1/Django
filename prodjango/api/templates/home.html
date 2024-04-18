@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 {% extends 'base/index.html'%}
 {% load static %}
-
+{% block title %} Pellumbi {% endblock %}
 
 {% block content %}
 <img src="{% static 'images/fimages.jpg' %}" alt="" class="test_image">
 <h1>Home page code </h1>
 <h3> Home</h3>
+<div class="container">
+    <div class="row">
 {% for item in items %}
-<div>
-    <h1>{{item.item_title}}</h1>
-    <p>{{item.item_desc}}</p>
-    <img src="{{item.item_image.url}}" alt="...">
+<div class="col-12 col-md-6 col-lg-4">
+    <div class="card" >
+        <img src="{{item.item_image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="{% url 'details' item.pk %}" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+</div>
+{% endfor %}
+</div>
+</div>
+<hr>
+<hr>
+<div class="container">
+  <div class="row">
+    {% for review in reviews %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card" >
+        <img src="{{review.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Reviews</h5>
+          <p class="card-text">{{review.comment}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name: {{review.name}}</li>
+          <li class="list-group-item">Surname: {{review.surname}}</li>
+          <li class="list-group-item">Position: {{review.position}}</li>
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+
+
+  </div>
 </div>
 
-{% endfor %}
 
 
+<hr>
 {% endblock %}
