@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base/index.html' %}
+{% load static %}
+{% block title %} item page {% endblock %}
+
+{% block content %}
+<div class="conatiner">
+    test
+    <div class="row">
+        <div class="col">
+            <h1>{{item.item_title}}</h1>
+            <p>{{item.item_desc}}</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <img src="{{item.item_image.url}}" alt="" class="img-fluid">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, itaque exercitationem dolores amet incidunt ex maxime aut sequi vitae corporis? Id, nesciunt commodi corrupti similique ab tenetur aperiam quos quia!</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
